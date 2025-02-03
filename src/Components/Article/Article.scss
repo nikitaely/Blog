@@ -1,0 +1,148 @@
+.article {
+  background-color: white;
+  box-shadow: 0px 4px 12px 0px #00000026;
+  width: 938px;
+
+  margin-top: 26px;
+  padding: 15px;
+  padding-bottom: 24px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+
+.article__post {
+  display: flex;
+  justify-content: space-between;
+}
+.article__info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+.article__title {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #1890ff;
+  margin: 0px;
+}
+
+.title_container {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+}
+
+.article__likes {
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+}
+
+.article__likes_button {
+  width: 16px;
+  height: 16px;
+  background-image: url("../../../public/like.svg");
+  background-position: 50% 50%;
+  border: none;
+  background-color: white;
+}
+
+.article__likes_count {
+  color: #00000080;
+}
+
+.article__tags {
+  list-style-type: none;
+  display: flex;
+  padding: 0px;
+  column-gap: 8px;
+}
+
+.article__tag {
+  padding: 3px;
+  border: 1px solid #00000080;
+  border-radius: 2px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.52px;
+  color: #00000080;
+}
+
+.article__description {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #00000080;
+}
+
+.article__author {
+  display: flex;
+  column-gap: 12px;
+}
+
+.article__author_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: center;
+}
+
+.date_create {
+  font-size: 12px;
+  font-weight: 400;
+  color: #00000080;
+}
+
+.profile_photo {
+  width: 46px;
+  height: 46px;
+  border-radius: 100%;
+}
+
+.article__post_container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.article__buttons {
+  display: flex;
+  column-gap: 12px;
+}
+
+.article__buttons_delete {
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #f5222d;
+  border: 1px solid #f5222d;
+  border-radius: 5px;
+  background-color: white;
+  padding: 5px 17px;
+}
+
+.article__buttons_edit {
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #52c41a;
+  border: 1px solid #52c41a;
+  border-radius: 5px;
+  background-color: white;
+  padding: 5px 19px;
+  text-decoration: none;
+}
+

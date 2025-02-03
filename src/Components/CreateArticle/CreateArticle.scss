@@ -1,0 +1,123 @@
+.new-article {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 34px;
+  box-shadow: 0px 0.61px 2.93px 0px #00000005;
+  box-shadow: 0px 1.46px 7.05px 0px #00000007;
+  box-shadow: 0px 2.75px 13.27px 0px #00000009;
+  box-shadow: 0px 4.91px 23.68px 0px #0000000b;
+  box-shadow: 0px 9.19px 44.28px 0px #0000000d;
+  box-shadow: 0px 22px 106px 0px #00000012;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  width: 938px;
+  align-self: center;
+  font-family: "Roboto";
+  align-items: center;
+  padding: 48px 33px;
+  row-gap: 21px;
+}
+
+.new-article__title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  text-align: center;
+  font-family: "Roboto";
+  margin: 0px;
+}
+
+.new-article__form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 21px;
+}
+
+.new-article__form_item {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  text-align: start;
+  font-family: "Roboto";
+  margin: 0px;
+}
+
+.new-article__form_item_input {
+  height: 36px;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding-left: 12px;
+  width: 874px;
+}
+
+.new-article__form_item_input.text {
+  height: 168px;
+  padding-top: 7px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  font-family: "Roboto";
+}
+
+.new-article__form_item_input.tag {
+  width: 300px;
+}
+
+.new-article__form_tags_delete {
+  display: inline-block;
+  background-color: white;
+  padding: 7px 36px;
+  color: #f5222d;
+  border: 1px solid #f5222d;
+  border-radius: 4px;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+}
+
+.new-article__form_tags_add {
+  display: inline-block;
+  background-color: white;
+  padding: 7px 40px;
+  border: 1px solid #1890ff;
+  border-radius: 4px;
+  color: #1890ff;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+}
+
+.new-article__form_tags_container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.new-article__form_tags_container_tag {
+  display: flex;
+  flex-direction: row;
+  column-gap: 17px;
+  align-items: center;
+}
+
+.new-article__form_submit {
+  width: 319px;
+  background-color: #1890ff;
+  color: white;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 4px;
+  border: none;
+  height: 40px;
+}
