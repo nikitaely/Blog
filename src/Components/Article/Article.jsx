@@ -5,10 +5,13 @@ import { useSelector } from "react-redux";
 import deleteArticle from "../../API/deleteArticle";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import favoriteArticle from "../../API/favoriteArticle";
+import unfavoriteArticle from "../../API/unfavoriteArticle";
 
 export default function Article({
   title,
-  likesCount,
+  favoritesCount,
+  favorited,
   tagList,
   description,
   userName,
@@ -32,6 +35,37 @@ export default function Article({
 
   const navigate = useNavigate();
 
+  const onLike = () => {
+    if (!auth) {
+      console.error("User not authenticated");
+      return;
+    }
+
+    const updatedListPosts = [...listPosts];
+
+    const index = listPosts.findIndex((article) => article.slug === slug);
+    if (index !== -1) {
+      updatedListPosts[index] = {
+        ...updatedListPosts[index],
+        favorited: !updatedListPosts[index].favorited,
+        favoritesCount: updatedListPosts[index].favorited
+          ? favoritesCount - 1
+          : favoritesCount + 1, // Update favorites count accordingly
+      };
+    }
+
+    setListPosts(updatedListPosts);
+
+    const action = favorited ? unfavoriteArticle : favoriteArticle;
+    action(user.token, slug)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error("Error updating like status:", error);
+      });
+  };
+
   const onDelete = (slug) => {
     setListPosts(listPosts.filter((item) => item.slug !== slug));
     deleteArticle(user.token, slug)
@@ -50,8 +84,8 @@ export default function Article({
             <div className="title_container">
               <h5 className="article__title">{title}</h5>
               <div className="article__likes">
-                <button className={"article__likes_button "}></button>
-                <span className="article__likes_count">{likesCount}</span>
+                <button className={"article__likes_button disable"}></button>
+                <span className="article__likes_count">{favoritesCount}</span>
               </div>
             </div>
             <ul className="article__tags">
@@ -88,8 +122,14 @@ export default function Article({
           <div className="title_container">
             <h5 className="article__title">{title}</h5>
             <div className="article__likes">
-              <button className="article__likes_button"></button>
-              <span className="article__likes_count">{likesCount}</span>
+              <button
+                type="button"
+                onClick={onLike}
+                className={`article__likes_button ${
+                  favorited && auth ? "active" : "disable"
+                }`}
+              ></button>
+              <span className="article__likes_count">{favoritesCount}</span>
             </div>
           </div>
           <ul className="article__tags">

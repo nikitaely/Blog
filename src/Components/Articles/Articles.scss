@@ -1,4 +1,17 @@
-
 .pagination {
-    padding-bottom: 17px;
-  }
+  padding-bottom: 17px;
+}
+
+:where(.css-dev-only-do-not-override-1htoz2s).ant-pagination .ant-pagination-item {
+  background-color: #EBEEF3;
+}
+
+:where(.css-dev-only-do-not-override-1htoz2s).ant-pagination .ant-pagination-item-active:hover a {
+  color: white;
+  background-color: #1890FF;
+}
+
+:where(.css-dev-only-do-not-override-1htoz2s).ant-pagination .ant-pagination-item-active a {
+  color: white;
+  background-color: #1890FF;
+}

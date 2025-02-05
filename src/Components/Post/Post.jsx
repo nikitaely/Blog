@@ -29,8 +29,6 @@ export default function Post({
     user: state.auth.user,
   }));
 
-  const [like, setLike] = useState(favorited);
-
   const onLike = () => {
     if (!auth) {
       console.error("User not authenticated");
@@ -56,7 +54,6 @@ export default function Post({
     action(user.token, slug)
       .then((response) => {
         console.log(response);
-        setLike(!like);
       })
       .catch((error) => {
         console.error("Error updating like status:", error);
@@ -72,7 +69,7 @@ export default function Post({
           </Link>
           <div className="post__likes">
             <button
-              className={`post__likes_button ${like ? "active" : "disable"}`}
+              className={`post__likes_button ${(favorited && auth) ? "active" : "disable"}`}
               type="button"
               onClick={onLike}
             ></button>

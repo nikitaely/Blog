@@ -7,6 +7,7 @@ import getArticles from "../../API/getArticles";
 import Header from "../Header/Header";
 import Profile from "../Profile/Profile";
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import {
   BrowserRouter as Router,
   Routes,
@@ -24,16 +25,24 @@ export default function App() {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
+  const { auth, user } = useSelector((state) => ({
+    auth: state.auth.auth,
+    user: state.auth.user,
+  }));
+
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     const storedAuth = localStorage.getItem("auth");
+    
 
-    if (storedUser) {
+    if (storedAuth) {
       dispatch(setUser(JSON.parse(storedUser)));
       dispatch(setAuth(storedAuth === "true"));
     }
 
-    getArticles()
+    console.log(`App authState: ${auth}`)
+
+    getArticles(user.token)
       .then((data) => {
         setListPosts(data.articles);
       })
@@ -94,7 +103,8 @@ const ArticleWrapper = ({ listPosts, setListPosts }) => {
   return (
     <Article
       title={post.title}
-      likesCount={post.favoritesCount}
+      favoritesCount={post.favoritesCount}
+      favorited={post.favorited}
       tagList={post.tagList}
       description={post.description}
       userName={post.author.username}
